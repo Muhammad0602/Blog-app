@@ -17,12 +17,14 @@
   </div>
   <section class='posts-section'>
     <% @posts.each_with_index do |post, index| %>
+        <%= link_to user_posts_path(@user.id) do %>
         <article class='posts'>
           <h3><%= "Post ##{index+1}" %></h3>
           <h4><%= post.text%></h4>
           <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
         </article>
         <% end %>
+    <% end %>
   </section>
 
 </main>

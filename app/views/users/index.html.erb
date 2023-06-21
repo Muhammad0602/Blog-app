@@ -4,6 +4,7 @@
 
 <section class='users'>
    <% @users.each do |user| %>
+    <%= link_to user_path(user.id) do %>
      <div class='user'>
        <%= image_tag(user.photo, class: 'user-photo') %>
        <div class='user-info'>
@@ -11,5 +12,6 @@
          <p>Number of posts: <%= user.posts_counter %></p>
        </div>
      </div> 
+     <% end %>
    <% end %>
 </section>
