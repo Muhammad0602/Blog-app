@@ -16,9 +16,9 @@ body {
 }
 
 .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-photo {
@@ -29,15 +29,15 @@ body {
 }
 
 .user-info {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid red;
-    padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 1rem 3rem;
 }
 
 .user-info p {
-   margin-left: 5rem;
-   margin-top: 2rem;
+  margin-left: 5rem;
+  margin-top: 2rem;
 }
 
 .user-bio {
@@ -49,10 +49,10 @@ body {
 }
 
 .posts-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .posts {
