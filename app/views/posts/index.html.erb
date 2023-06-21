@@ -1,1 +1,5 @@
 <h1> show the list of posts </h1>
+
+<% @posts.each do |post| %>
+    <h4><%= post.text %></h4> <br>
+    <% end %>
