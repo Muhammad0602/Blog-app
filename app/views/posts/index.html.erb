@@ -1,5 +1,26 @@
 <h1> show the list of posts </h1>
 
-<% @posts.each do |post| %>
-    <h4><%= post.text %></h4> <br>
-    <% end %>
+<main>
+   <div>
+     <%= image_tag(@user.photo) %>
+     <div>
+        <h2><%= @user.name%></h2>
+        <p>Number of posts: <%= @user.posts_counter %></p>
+     </div>
+   </div>
+
+   <section>
+     <% @posts.each_with_index do |post, index| %>
+        <article>
+           <h3><%="Post ##{index+1}"%></h3>
+           <h4><%= post.text %></h4>
+           <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        </article>
+        <ul>
+           <% post.comments.each do |comment| %>
+              <li><%="#{comment.user.name}: #{comment.text}"%></li>
+              <% end %>
+        </ul>
+        <% end %>
+   </section>
+</main>

@@ -1,3 +1,16 @@
 <h1> show details about a specific post</h1>
 
-<%= "#{@post.text} and it has #{@post.comments_counter} comments" %>
+<section>
+   <article>
+     <div>
+        <h3><%= "Post ##{@post.id} by #{@post.author.name}"%></h3>
+        <p><%= "Comments: #{@post.comments_counter}, Likes: #{@post.likes_counter}" %></p>
+     </div>
+     <p><%= @post.text%></p>
+   </article>
+   <ul>
+     <% @post.comments.each do |comment| %>
+        <li><%=comment.text%></li>
+        <% end %>
+   </ul>
+</section>

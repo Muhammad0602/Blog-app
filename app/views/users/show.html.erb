@@ -1,4 +1,26 @@
-<h1> display details about a user</h1>
+<h1>display details about a user</h1>
 
-<h2><%= @user.name %> </h2>
-<h3><%= @user.bio %></h3>
+<section>
+  <div class='user-show'>
+    <%= image_tag(@user.photo) %>
+    <div class='user-show-info'>
+      <h2><%= @user.name %></h2>
+      <p>Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+
+  <div>
+    <span>Bio<span>
+    <p><%= @user.bio%></p>
+  </div>
+  <section>
+    <% @posts.each_with_index do |post, index| %>
+        <article>
+          <h3><%= "Post ##{index+1}" %></h3>
+          <h4><%= post.text%></h4>
+          <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        </article>
+        <% end %>
+  </section>
+
+</section>
