@@ -11,7 +11,7 @@
      <p><%= @post.text%></p>
    </article>
    <ul>
-     <% @post.comments.each do |comment| %>
+     <% @post.recent_comments.each do |comment| %>
         <li><%=comment.text%></li>
         <% end %>
    </ul>

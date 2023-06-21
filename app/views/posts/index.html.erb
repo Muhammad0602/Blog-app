@@ -18,7 +18,7 @@
            <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
         </article>
         <ul>
-           <% post.comments.each do |comment| %>
+           <% post.recent_comments.each do |comment| %>
               <li><%="#{comment.user.name}: #{comment.text}"%></li>
               <% end %>
         </ul>

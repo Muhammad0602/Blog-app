@@ -1,18 +1,18 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0 2rem;
-    padding: 0;
+  margin: 0 2rem;
+  padding: 0;
 }
 
 .users {
-    display: flex;
-    border: 1px solid black;
-    flex-direction: column;
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
 }
 
 .user {
@@ -22,10 +22,10 @@ body {
 }
 
 .user-photo {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    margin-right: 10rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-right: 10rem;
 }
 
 .user-info {
@@ -41,11 +41,11 @@ body {
 }
 
 .user-bio {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rem;
 }
 
 .posts-section {
@@ -56,13 +56,10 @@ body {
 }
 
 .posts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    margin-top: 4rem;
-    padding: 2rem 4rem;
-    border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 4rem;
+  padding: 2rem 4rem;
+  border: 1px solid grey;
 }
-
-
-
