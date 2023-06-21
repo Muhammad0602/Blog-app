@@ -1,13 +1,15 @@
+<%= stylesheet_link_tag 'styles'%>
+
 <h1> show a list of users </h1>
 
 <section class='users'>
-  <div class='user'>
-    <% @users.each do |user| %>
-      <%= image_tag(user.photo, class: 'user-photo') %>
-      <div class='user-info'>
-        <h3><%= user.name %></h3> <br>
-        <p>Number of posts: <%= user.posts_counter %></p>
-      </div>
-    <% end %>
-  </div> 
+   <% @users.each do |user| %>
+     <div class='user'>
+       <%= image_tag(user.photo, class: 'user-photo') %>
+       <div class='user-info'>
+         <h2><%= user.name %></h2> <br>
+         <p>Number of posts: <%= user.posts_counter %></p>
+       </div>
+     </div> 
+   <% end %>
 </section>

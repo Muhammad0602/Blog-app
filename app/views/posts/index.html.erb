@@ -1,15 +1,16 @@
+<%= stylesheet_link_tag 'styles'%>
 <h1> show the list of posts </h1>
 
 <main>
-   <div>
-     <%= image_tag(@user.photo) %>
-     <div>
+   <div class='user'>
+     <%= image_tag(@user.photo, class: 'user-photo') %>
+     <div class='user-info'>
         <h2><%= @user.name%></h2>
         <p>Number of posts: <%= @user.posts_counter %></p>
      </div>
    </div>
 
-   <section>
+   <section class='posts-section'>
      <% @posts.each_with_index do |post, index| %>
         <article>
            <h3><%="Post ##{index+1}"%></h3>
