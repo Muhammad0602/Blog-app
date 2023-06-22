@@ -1,1 +1,30 @@
-<h1> display details about a user</h1>
+<%= stylesheet_link_tag 'styles'%>
+
+<h1>display details about a user</h1>
+
+<main>
+  <div class='user'>
+    <%= image_tag(@user.photo, class: 'user-photo') %>
+    <div class='user-show-info'>
+      <h2><%= @user.name %></h2>
+      <p>Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+
+  <div class='user-bio'>
+    <h3>Bio<h3>
+    <p><%= @user.bio%></p>
+  </div>
+  <section class='posts-section'>
+    <% @posts.each_with_index do |post, index| %>
+        <%= link_to user_posts_path(@user.id) do %>
+        <article class='posts'>
+          <h3><%= "Post ##{index+1}" %></h3>
+          <h4><%= post.text%></h4>
+          <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        </article>
+        <% end %>
+    <% end %>
+  </section>
+
+</main>
