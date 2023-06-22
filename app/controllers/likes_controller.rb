@@ -8,9 +8,9 @@ class LikesController < ApplicationController
 
         if @like.save
             flash[:notice] = 'Your like was saved successfully'
-            redirect_to user_posts_path(params[:user_id])
         else
             flash[:alert] = 'Something went wrong, please try again.'
         end
+        redirect_to user_posts_path(params[:user_id])
     end
 end
