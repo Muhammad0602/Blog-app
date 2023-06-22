@@ -15,8 +15,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @post = current_user.posts.build(post_params)
-    
+    # @user = User.find(params[:user_id])
+    # @post = Post.new(author_id: @user.id, **post_params)
+
     @post = Post.new(author_id: current_user.id, **post_params)
 
     if @post.save
