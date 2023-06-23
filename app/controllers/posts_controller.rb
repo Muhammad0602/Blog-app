@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(author_id: current_user.id, **post_params)
 
     if @post.save
-      flash[:success] = 'Post created successfully' 
+      flash[:success] = 'Post created successfully'
       redirect_to user_posts_path(params[:user_id])
     else
       flash[:alert] = 'Something went wrong. Please try again!'
@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
