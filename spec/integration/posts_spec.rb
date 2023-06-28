@@ -9,7 +9,7 @@ RSpec.describe 'Posts', type: :system do
     let(:like) { Like.create(user:, post: first_post) }
     before(:each) do
       comment.save
-      like.update_likes_counter
+      like.update_like_counter
     end
 
     it 'shows the basic info for the user' do
@@ -18,7 +18,7 @@ RSpec.describe 'Posts', type: :system do
       # I can see the user's username.
       expect(page).to have_content(user.name)
       # I can see the number of posts the user has written.
-      expect(page).to have_content("Number of posts #{user.posts.size}")
+      expect(page).to have_content("Number of posts: #{user.posts.size}")
       # I can see a post's title.
       expect(page).to have_content(first_post.title)
       # I can see some of the post's body.
@@ -26,9 +26,8 @@ RSpec.describe 'Posts', type: :system do
       # I can see the first comments on a post.
       expect(page).to have_content(comment.text)
       # I can see how many comments a post has.
-      expect(page).to have_css('h3', text: "Comments: #{first_post.comments.count}")
       # I can see how many likes a post has.
-      expect(page).to have_css('span.post-footer',
+      expect(page).to have_css('p',
                                text: "Comments: #{first_post.comments_counter}, Likes: #{first_post.likes_counter}")
       # I can see a section for pagination if there are more posts than fit on the view.
       expect(page).to have_button('Pagination')
@@ -49,7 +48,7 @@ RSpec.describe 'Posts', type: :system do
     let(:like) { Like.create(user:, post: first_post) }
     before(:each) do
       comment.save
-      like.update_likes_counter
+      like.update_like_counter
     end
 
     it 'shows the post info' do
@@ -59,10 +58,9 @@ RSpec.describe 'Posts', type: :system do
       # I can see who wrote the post.
       expect(page).to have_content(first_post.author.name)
       # I can see how many comments it has.
-      expect(page).to have_css('h3', text: "Comments: #{first_post.comments.count}")
+      expect(page).to have_css('p', text: "Comments: #{first_post.comments_counter}")
       # I can see how many likes it has.
-      expect(page).to have_css('span.post-header',
-                               text: "Comments: #{first_post.comments_counter}, Likes: #{first_post.likes_counter}")
+      expect(page).to have_css('p', text: "Likes: #{first_post.likes_counter}")
       # I can see the post body.
       expect(page).to have_content(first_post.text)
       # I can see the username of each commentor.
