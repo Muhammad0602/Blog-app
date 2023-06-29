@@ -15,6 +15,8 @@ RSpec.describe 'Posts', type: :system do
     it 'shows the basic info for the user' do
       visit user_posts_path(user_id: user.id)
 
+      # I can see the user's profile picture
+      expect(page).to have_content(user.photo)
       # I can see the user's username.
       expect(page).to have_content(user.name)
       # I can see the number of posts the user has written.
