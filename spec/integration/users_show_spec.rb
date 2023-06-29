@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users show', type: :system do
-describe 'users show' do
+  describe 'users show' do
     let(:user) { User.new(name: 'Tango', photo: 'http://myphoto') }
     let(:post) { Post.new(author: user, title: 'blablabla', text: 'blablabla') }
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts Show', type: :system do
-describe 'Post show page' do
+  describe 'Post show page' do
     let(:user) { User.create(name: 'Tango', photo: 'http://myphoto') }
     let(:first_post) { Post.create(author: user, title: 'blablabla', text: 'blablabla') }
     let(:second_post) { Post.create(author: user, title: 'dewdew', text: 'dewdewdew') }
