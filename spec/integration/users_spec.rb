@@ -1,77 +1,77 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
-  # describe 'index page' do
-  #   before(:each) do
-  #     User.create(name: 'Tango', photo: 'http://myphoto')
-  #     User.create(name: 'Mango', photo: 'http://bahirsphoto')
-  #   end
-  #   let(:users) { User.all }
-  #   it 'shows the right content' do
-  #     visit root_path
-  #     users.each do |user|
-  #       expect(page).to have_content(user.name)
-  #     end
-  #   end
+  describe 'index page' do
+    before(:each) do
+      User.create(name: 'Tango', photo: 'http://myphoto')
+      User.create(name: 'Mango', photo: 'http://bahirsphoto')
+    end
+    let(:users) { User.all }
+    it 'shows the right content' do
+      visit root_path
+      users.each do |user|
+        expect(page).to have_content(user.name)
+      end
+    end
 
-  #   it 'shows the correct photo' do
-  #     visit root_path
-  #     users.each do |user|
-  #       expect(page).to have_css("img[src*='#{user.photo}']")
-  #     end
-  #   end
+    it 'shows the correct photo' do
+      visit root_path
+      users.each do |user|
+        expect(page).to have_css("img[src*='#{user.photo}']")
+      end
+    end
 
-  #   it 'shows posts counter' do
-  #     visit root_path
-  #     users.each do |user|
-  #       expect(page).to have_content("Number of posts: #{user.posts.count}")
-  #     end
-  #   end
-  # end
+    it 'shows posts counter' do
+      visit root_path
+      users.each do |user|
+        expect(page).to have_content("Number of posts: #{user.posts.count}")
+      end
+    end
+  end
 
-  # describe 'users show' do
-  #   let(:user) { User.new(name: 'Tango', photo: 'http://myphoto') }
-  #   let(:post) { Post.new(author: user, title: 'blablabla', text: 'blablabla') }
+  describe 'users show' do
+    let(:user) { User.new(name: 'Tango', photo: 'http://myphoto') }
+    let(:post) { Post.new(author: user, title: 'blablabla', text: 'blablabla') }
 
-  #   before(:each) do
-  #     user.save
-  #     post.save
-  #   end
+    before(:each) do
+      user.save
+      post.save
+    end
 
-  #   it "shows the user's profile picture." do
-  #     visit user_path(user.id)
-  #     expect(page).to have_css("img[src*='#{user.photo}']")
-  #   end
+    it "shows the user's profile picture." do
+      visit user_path(user.id)
+      expect(page).to have_css("img[src*='#{user.photo}']")
+    end
 
-  #   # I can see the user's username.
-  #   it "shows the user's username." do
-  #     visit user_path(user.id)
-  #     expect(page).to have_content(user.name)
-  #   end
+    # I can see the user's username.
+    it "shows the user's username." do
+      visit user_path(user.id)
+      expect(page).to have_content(user.name)
+    end
 
-  #   it 'shows the number of posts the user has written.' do
-  #     visit user_path(user.id)
-  #     expect(page).to have_content("Number of posts: #{user.posts.count}")
-  #   end
+    it 'shows the number of posts the user has written.' do
+      visit user_path(user.id)
+      expect(page).to have_content("Number of posts: #{user.posts.count}")
+    end
 
-  #   it "shows the user's bio." do
-  #     visit user_path(user.id)
-  #     expect(page).to have_content(user.bio)
-  #   end
+    it "shows the user's bio." do
+      visit user_path(user.id)
+      expect(page).to have_content(user.bio)
+    end
 
-  #   # I can see the user's first 3 posts.
-  #   it "shows the user's first 3 posts." do
-  #     visit user_path(user.id)
-  #     user.recent_posts.each do |post|
-  #       expect(page).to have_content(post.title)
-  #     end
-  #   end
-  #   # I can see a button that lets me view all of a user's posts.
-  #   it "shows a button that lets me view all of a user's posts." do
-  #     visit user_path(user.id)
-  #     expect(page).to have_button('Show All Posts')
-  #   end
-  # end
+    # I can see the user's first 3 posts.
+    it "shows the user's first 3 posts." do
+      visit user_path(user.id)
+      user.recent_posts.each do |post|
+        expect(page).to have_content(post.title)
+      end
+    end
+    # I can see a button that lets me view all of a user's posts.
+    it "shows a button that lets me view all of a user's posts." do
+      visit user_path(user.id)
+      expect(page).to have_button('Show All Posts')
+    end
+  end
 
   describe 'checks the links' do
     before(:each) do
