@@ -21,6 +21,8 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @post.destroy
+    @user.posts_counter -= 1
+    @user.save
     redirect_to user_posts_path(@user)
   end
 
