@@ -3,6 +3,9 @@
 <h1> show details about a specific post</h1>
 
 <section>
+  <% if can? :destroy, @post %>
+    <%= link_to "Remove", "/users/#{@post.author_id}/posts/#{@post.id}", 'data-turbo-method': :delete %>
+  <% end %>
    <article>
      <div>
         <h3><%= "Post ##{@post.id} by #{@post.author.name}"%></h3>
