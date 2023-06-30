@@ -24,14 +24,13 @@ class CommentsController < ApplicationController
       end
     else
       begin
-        @user = User.find(params[:user_id])
-        @post = Post.find(params[:post_id])
-        @comment = Comment.new(user: @user, post: @post, **comment_params)
-        if @comment.save
-          render json: { message: 'Comment created successfully' }, status: 201
-        else
-          render json: @comment.errors, status: 401
-        end
+        # @user = User.find(params[:user_id])
+        # @post = Post.find(params[:post_id])
+        @comment = Comment.new(user: User.find(params[:user_id]), post: Post.find(params[:post_id]), **comment_params)
+        render json: { message: 'Comment created successfully' }, status: 201 if @comment.save
+        # else
+        render json: @comment.errors, status: 401 unless @comment.save
+        # end
       rescue ActiveRecord::RecordNotFound
         render json: { message: 'Invalid post or user id' }, status: 404
       end
