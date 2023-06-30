@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   load_and_authorize_resource
 
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: @user.id)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
