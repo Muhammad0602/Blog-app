@@ -24,6 +24,8 @@ gem 'devise'
 # Use cancancan for authorization
 gem 'cancancan'
 
+# Use Rswag for API Docementation
+gem 'rswag'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
